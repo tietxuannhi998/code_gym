@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy tính đơn giản</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        .calculator {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid white;
+            background-color: grey;
+        }
+        
+        h1 {
+            text-align: center;
+            color: blue;
+        }
+        
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 5px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: green;
+        }
+        
+        #result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Máy tính đơn giản</h1>
+        <input type="text" id="num1" placeholder="Nhập số thứ nhất">
+        <input type="text" id="num2" placeholder="Nhập số thứ hai">
+        
+        <button id="add">Cộng (+)</button>
+        <button id="subtract">Trừ (-)</button>
+        <button id="multiply">Nhân (×)</button>
+        <button id="divide">Chia (÷)</button>
+    
+        <div id="result">Kết quả: </div>
+    </div>
+
+    <script>
+        var soThuNhat = document.getElementById("num1");
+        var soThuHai = document.getElementById("num2");
+        var ketQua = document.getElementById("result");
+        
+        function kiemTraDauVao() {
+            var so1 = Number(soThuNhat.value);
+            var so2 = Number(soThuHai.value);
+            
+            if (soThuNhat.value === "" || soThuHai.value === "") {
+                ketQua.innerHTML = "Kết quả: Vui lòng nhập cả hai số";
+                return false;
+            }
+            
+            if (isNaN(so1) || isNaN(so2)) {
+                ketQua.innerHTML = "Kết quả: Vui lòng nhập số hợp lệ";
+                return false;
+            }
+            
+            return {so1: so1, so2: so2};
+        }
+        
+        function hienThiKetQua(phepToan, giaTri) {
+            ketQua.innerHTML = `Kết quả ${phepToan}: ${giaTri.toFixed(2)}`;
+        }
+        
+        document.getElementById("add").addEventListener("click", function() {
+            var dauVao = kiemTraDauVao();
+            if (dauVao) hienThiKetQua("cộng", dauVao.so1 + dauVao.so2);
+        });
+
+        document.getElementById("subtract").addEventListener("click", function() {
+            var dauVao = kiemTraDauVao();
+            if (dauVao) hienThiKetQua("trừ", dauVao.so1 - dauVao.so2);
+        });
+
+        document.getElementById("multiply").addEventListener("click", function() {
+            var dauVao = kiemTraDauVao();
+            if (dauVao) hienThiKetQua("nhân", dauVao.so1 * dauVao.so2);
+        });
+
+        document.getElementById("divide").addEventListener("click", function() {
+            var dauVao = kiemTraDauVao();
+            if (dauVao) {
+                if (dauVao.so2 === 0) {
+                    ketQua.innerHTML = "Kết quả chia: Không thể chia cho 0";
+                } else {
+                    hienThiKetQua("chia", dauVao.so1 / dauVao.so2);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

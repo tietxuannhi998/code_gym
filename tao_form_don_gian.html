@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sở Thích Của Bạn</title>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            margin-right: 10px;
+            color: #0000cc;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"] {
+            width: 60%;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        .checkbox-group {
+            margin-left: 115px;
+        }
+        .checkbox-item {
+            margin-bottom: 10px;
+            color: #ff5722;
+        }
+        .button-group {
+            margin-top: 20px;
+            margin-left: 115px;
+        }
+        input[type="submit"], input[type="reset"] {
+            padding: 5px 15px;
+            background-color: #ddd;
+            border: 1px solid #999;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">SỞ THÍCH CỦA BẠN</div>
+        
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="yourname">Họ và tên</label>
+                <input type="text" id="yourname" name="yourname">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            
+            <div class="form-group">
+                <label>Sở thích</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="hobby1" name="hobby" value="thethao">
+                        <label for="hobby1" style="width: auto; text-align: left;">Thể thao</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="hobby2" name="hobby" value="amnhac">
+                        <label for="hobby2" style="width: auto; text-align: left;">Âm nhạc</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="hobby3" name="hobby" value="docsach">
+                        <label for="hobby3" style="width: auto; text-align: left;">Đọc sách</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="hobby4" name="hobby" value="luotweb">
+                        <label for="hobby4" style="width: auto; text-align: left;">Lướt web</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="hobby5" name="hobby" value="choigame">
+                        <label for="hobby5" style="width: auto; text-align: left;">Chơi game</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="hobby6" name="hobby" value="dienanh">
+                        <label for="hobby6" style="width: auto; text-align: left;">Điện ảnh</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="hobby7" name="hobby" value="dulich">
+                        <label for="hobby7" style="width: auto; text-align: left;">Du lịch</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <input type="submit" value="Gửi thông tin">
+                <input type="reset" value="Nhập lại">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

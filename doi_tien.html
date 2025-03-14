@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+        
+        label {
+            display: inline-block;
+            width: 120px;
+            margin-top: 10px;
+        }
+        
+        button {
+            margin-top: 15px;
+            padding: 5px 15px;
+            background-color:black;
+            color: white;
+        }
+        
+        #result {
+            margin-top: 15px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h2>AUD-VND Currency Converter</h2>
+    
+    <div>
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" value="1">
+    </div>
+    
+    <div>
+        <label for="fromCurrency">From Currency:</label>
+        <select id="fromCurrency">
+            <option value="VND">Vietnam</option>
+            <option value="AUD">AUD</option>
+        </select>
+    </div>
+    
+    <div>
+        <label for="toCurrency">To Currency:</label>
+        <select id="toCurrency">
+            <option value="AUD">AUD</option>
+            <option value="VND">Vietnam</option>
+        </select>
+    </div>
+    
+    <button id="convertBtn">Convert</button>
+    
+    <div id="result">Result: </div>
+    
+    <script>
+        var amountInput = document.getElementById('amount');
+        var fromCurrencySelect = document.getElementById('fromCurrency');
+        var toCurrencySelect = document.getElementById('toCurrency');
+        var convertBtn = document.getElementById('convertBtn');
+        var resultDiv = document.getElementById('result');
+        
+        var exchangeRate = 16.2;
+        
+
+        function convertCurrency() {
+            // lấy giá trị từ ô input
+            var amount = parseFloat(amountInput.value);
+            
+            var fromCurrency = fromCurrencySelect.value;
+            var toCurrency = toCurrencySelect.value;
+            
+            // Check input
+            if (isNaN(amount)) {
+                resultDiv.innerHTML = "Result: Please enter a valid amount";
+                return;
+            }
+            
+            var result;
+            
+            if (fromCurrency == "AUD" && toCurrency == "VND") {
+                result = amount * exchangeRate;
+            } 
+            else if (fromCurrency == "VND" && toCurrency == "AUD") {
+                result = amount / exchangeRate;
+            } 
+            else {
+                result = amount;
+            }
+            
+            resultDiv.innerHTML = "Result: " + result + " " + toCurrency;
+        }
+        
+        convertBtn.onclick = convertCurrency;
+    </script>
+</body>
+</html>
