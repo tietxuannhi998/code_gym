@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days in Month</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: auto;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            background-color: #ff9800;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e69500;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Days in a Month</h2>
+        <input type="number" id="month" placeholder="Enter month (1-12)">
+        <button onclick="calculateDays()">Tính số ngày</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateDays() {
+            let month = parseInt(document.getElementById("month").value);
+            let result = document.getElementById("result");
+
+            if (isNaN(month) || month < 1 || month > 12) {
+                result.innerText = "Nhập tháng (1-12)!";
+                return;
+            }
+
+            let days;
+            switch (month) {
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                    days = 31;
+                    break;
+                case 4: case 6: case 9: case 11:
+                    days = 30;
+                    break;
+                case 2:
+                    days = "28 hoặchoặc 29";
+                    break;
+            }
+
+            result.innerText = `Tháng ${month} có ${days} ngày.`;
+        }
+    </script>
+</body>
+</html>
